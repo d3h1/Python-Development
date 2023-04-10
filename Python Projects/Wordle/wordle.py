@@ -13,6 +13,10 @@ words = [
 
 randomWord = random.choice(words)
 
+# !TESTING ONLY -- comment when done
+print(randomWord)
+
+
 for n in range(1, 7):
     guess = input(f"\nGuess {n}: ").lower()
     if guess == randomWord:
