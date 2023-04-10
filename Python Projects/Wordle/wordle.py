@@ -1,9 +1,21 @@
-word = 'snake'
+import pathlib
+import random
 
+# We are using pathlib to get the src path of the word.txt
+wordlist = pathlib.Path('./words.txt')
+
+words = [
+    # lowercase the word so user can enter whatever case they want and it will always be lowercase
+    word.lower()
+    # ['adder', 'crane', 'etc...']
+    for word in wordlist.read_text(encoding="utf-8").strip().split("\n")
+]
+
+randomWord = random.choice(words)
 
 for n in range(1, 7):
     guess = input(f"\nGuess {n}: ").lower()
-    if guess == word:
+    if guess == randomWord:
         print('Correct!')
         break
     
@@ -13,19 +25,19 @@ for n in range(1, 7):
     
     # We are using set comprehension to collect correct letters
     correctLetters = {
-        letter for letter, correct in zip(guess, word) if letter == correct
+        letter for letter, correct in zip(guess, randomWord) if letter == correct
     }
     # We will use boolean logic to find a count for misplaced and wrong letters
-    misplacedLetters = set(guess) & set(word) - correctLetters
-    wrongLetters = set(guess) - set(word)
+    misplacedLetters = set(guess) & set(randomWord) - correctLetters
+    wrongLetters = set(guess) - set(randomWord)
     
-    # This will print out each form of letter based on your guess and the word
+    # This will print out each form of letter based on your guess and the randomWord
     print('Correct Letters:', ', '.join(sorted(correctLetters)))
     print('Misplaced Letters:', ', '.join(sorted(misplacedLetters)))
     print('Wrong Letters:', ', '.join(sorted(wrongLetters)))
 
-if guess != word:
-    print ('You failed!')
+if guess != randomWord:
+    print (f'You failed! The word was {randomWord}')
 else:
     print('You did it!')
     
