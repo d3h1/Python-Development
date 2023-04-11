@@ -22,9 +22,8 @@ def main():
         refresh_page(headline=f'Guess {i + 1}')
         show_guesses(guesses, randomWord)
         
-        guesses[i] = input('\nGuess Word: ').lower()
+        guesses[i] = guess_word(previous_guesses = guesses[:i])
         if guesses[i] == randomWord:
-            # game_win()
             break
         
     # POST
@@ -32,14 +31,18 @@ def main():
 
 def get_random_word(word_list):
     # We are using pathlib to get the src path of the word.txt
-    words = [
+    # *Using the walrus operator allows you the user to fix their problem versus seeing a traceback error -- actionable feedback
+    if words := [
         # lowercase the word so user can enter whatever case they want and it will always be lowercase
         word.lower()
         # ['adder', 'crane', 'etc...']
         for word in word_list
         if len(word) == 5 and all(letter in ascii_letters for letter in word)
-    ]
-    return random.choice(words)
+    ]:
+        return random.choice(words)
+    else:
+        console.print('No words of length 5 in the word list!', style='red')
+        raise SystemExit()
 
 def show_guesses(guesses, randomWord):
     for guess in guesses:
@@ -56,13 +59,32 @@ def show_guesses(guesses, randomWord):
                 style = 'dim'
             styled_guess.append(f'[{style}]{letter}[/]')
         console.print("".join(styled_guess), justify='center')
+        
+def guess_word(previous_guesses):
+    guess = console.input('\nGuess word: ').lower()
+    
+    # Using recursive calls to make an elegant approach to create a loop in this case
+    if guess in previous_guesses:
+        console.print(f'You have already guessed {guess}.', style='red')
+        return guess_word(previous_guesses)
+    
+    # We have to check the length of the users inputted word to make sure it matches the secret word length of 5
+    if len(guess) != 5:
+        console.print('Your guess must be 5 letter!', style='red')
+        return guess_word(previous_guesses)
+    
+    # We are gonna guide the user to only the english alphabet 
+    # *Again we use the walrus operator inside the any function to collect an example of a char thats invalid
+    if any((invalid := letter) not in ascii_letters for letter in guess):
+        console.print(f'Invalid Letter: "{invalid}". Please use English Letters', style='warning')
+        return guess_word(previous_guesses)
+    
+    return guess
 
 def refresh_page(headline):
     console.clear()
     console.rule(f'[bold blue]: leafy_green: {headline} :leafy_green:[/]\n')
 
-# def game_win():
-#     print("\nYou have won the game! Please play again!\n")
 
 def game_over(guesses, randomWord, guessed_correctly):
     refresh_page(headline='Game OVER!')
