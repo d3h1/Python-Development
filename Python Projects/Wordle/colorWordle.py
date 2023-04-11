@@ -1,30 +1,34 @@
 import pathlib
 import random
+import contextlib
 
 from rich.console import Console
-from string import ascii_letters
+from string import ascii_letters, ascii_uppercase
 from rich.theme import Theme
 
 console = Console(width=40, theme=Theme({'Warning': 'red on yellow'}))
-# console.rule(":leafy_green: A Game Called: Wordle :leafy_green:")
+
+numOfLetters = 5
+numOfGuesses = 6
+words_path = pathlib.Path(__file__).parent / "words.txt"
 
 def main():
     # This is how we get our main word
-    words_path = pathlib.Path(__file__).parent / "words.txt"
     randomWord = get_random_word(words_path.read_text(encoding='utf-8').split('\n'))
-    guesses = ['_' * 5] * 6
+    guesses = ['_' * numOfLetters] * numOfGuesses
     
     # # !FOR TESTING -- COMMENT OUT WHEN DONE
     # print(randomWord)    
     
     # Processing the main loop
-    for i in range(6):
-        refresh_page(headline=f'Guess {i + 1}')
-        show_guesses(guesses, randomWord)
-        
-        guesses[i] = guess_word(previous_guesses = guesses[:i])
-        if guesses[i] == randomWord:
-            break
+    with contextlib.suppress(KeyboardInterrupt):
+        for i in range(numOfGuesses):
+            refresh_page(headline=f'Guess {i + 1}')
+            show_guesses(guesses, randomWord)
+            
+            guesses[i] = guess_word(previous_guesses = guesses[:i])
+            if guesses[i] == randomWord:
+                break
         
     # POST
     game_over(guesses, randomWord, guessed_correctly = guesses[i] == randomWord)
@@ -33,18 +37,19 @@ def get_random_word(word_list):
     # We are using pathlib to get the src path of the word.txt
     # *Using the walrus operator allows you the user to fix their problem versus seeing a traceback error -- actionable feedback
     if words := [
-        # lowercase the word so user can enter whatever case they want and it will always be lowercase
-        word.lower()
+        # uppercase the word so user can enter whatever case they want and it will always be uppercase
+        word.upper()
         # ['adder', 'crane', 'etc...']
         for word in word_list
-        if len(word) == 5 and all(letter in ascii_letters for letter in word)
+        if len(word) == numOfLetters and all(letter in ascii_letters for letter in word)
     ]:
         return random.choice(words)
     else:
-        console.print('No words of length 5 in the word list!', style='red')
+        console.print(f'No words of length {numOfLetters} in the word list!', style='red')
         raise SystemExit()
 
 def show_guesses(guesses, randomWord):
+    letter_status = {letter: letter for letter in ascii_uppercase}
     for guess in guesses:
         styled_guess = []
         # WE are populating an empty list with our guesses as they are entered by the user
@@ -58,10 +63,13 @@ def show_guesses(guesses, randomWord):
             else:
                 style = 'dim'
             styled_guess.append(f'[{style}]{letter}[/]')
+            if letter != '_':
+                letter_status[letter] = f'[{style}]{letter}[/]'
         console.print("".join(styled_guess), justify='center')
+    console.print('\n' + ''.join(letter_status.values()), justify='center')
         
 def guess_word(previous_guesses):
-    guess = console.input('\nGuess word: ').lower()
+    guess = console.input('\nGuess word: ').upper()
     
     # Using recursive calls to make an elegant approach to create a loop in this case
     if guess in previous_guesses:
@@ -69,7 +77,7 @@ def guess_word(previous_guesses):
         return guess_word(previous_guesses)
     
     # We have to check the length of the users inputted word to make sure it matches the secret word length of 5
-    if len(guess) != 5:
+    if len(guess) != numOfLetters:
         console.print('Your guess must be 5 letter!', style='red')
         return guess_word(previous_guesses)
     
