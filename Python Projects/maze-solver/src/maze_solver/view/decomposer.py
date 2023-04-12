@@ -1,5 +1,5 @@
 from maze_solver.models.border import Border
-from maze_solver.view.primitives import ( Line, Point, Primitive, Polygon, Polyline )
+from maze_solver.view.primitives import ( Line, Point, Primitive, Polygon, Polyline, DisjointLines, NullPrimitive )
 
 # We are trying to decompose the border into relevant geometric primitives that can be drawn
 def decompose(border: Border, top_left: Point, square_size: int) -> Primitive:
@@ -63,3 +63,24 @@ def decompose(border: Border, top_left: Point, square_size: int) -> Primitive:
                 top_left,
             ]
         )
+        
+    if border is Border.LEFT | Border.RIGHT:
+        return DisjointLines([left, right])
+    
+    if border is Border.TOP | Border.BOTTOM:
+        return DisjointLines([top, bottom])
+    
+    # Allows for compass like directions
+    if border is Border.TOP:
+        return top
+
+    if border is Border.RIGHT:
+        return right
+
+    if border is Border.BOTTOM:
+        return bottom
+
+    if border is Border.LEFT:
+        return left
+    
+    return NullPrimitive()
