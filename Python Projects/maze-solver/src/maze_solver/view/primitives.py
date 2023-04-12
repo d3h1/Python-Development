@@ -1,10 +1,22 @@
 from typing import NamedTuple, Protocol
+from dataclasses import dataclass
+
+
+# Python cannot contain hyphens making us have to find a way to replace the underscores in python names and elements with hyphens so we can read the SVG
+def tag(name: str, value: str | None = None, **attributes) -> str:
+    attrs = "" if not attributes else " " + " ".join(
+        f'{key.replace("_","-")}="{value}"'
+        for key, value in attributes.items()
+    )
+    if value is None:
+        return f'<{name}{attrs} />'
+    return f'<{name}{attrs}>{value}</{name}>'
 
 # Common interface to all geometric primitives
 class Primitive(Protocol):
     def draw(self, **attributes) -> str:
         ...
- 
+
 # Returns an SVG Point as a string to define a primitive
 class Point(NamedTuple):
     x: int
@@ -35,20 +47,44 @@ class Line(NamedTuple):
 class Polyline(tuple[Point, ...]):
     def draw(self, **attributes) -> str:
         points = ' '.join(point.draw() for point in self)
-        return tag('olyline', points = points, **attributes)
+        return tag('polyline', points = points, **attributes)
 
-# CLosed
+# Closed
 class Polygon(tuple[Point, ...]):
     def draw(self, **attributes) -> str:
         points = ' '.join(point.draw() for point in self)
         return tag('polygon', points = points, **attributes)
     
-# Python cannot contain hyphens making us have to find a way to replace the underscores in python names and elements with hyphens so we can read the SVG
-def tag(name: str, value: str | None = None, **attributes) -> str:
-    attrs = "" if not attributes else " " + " ".join(
-        f'{key.replace("_","-")}="{value}"'
-        for key, value in attributes.items()
-    )
-    if value is None:
-        return f'<{name}{attrs} />'
-    return f'<{name}{attrs}>{value}</{name}>'
+class DisjointLines(tuple[Line, ...]):
+    def draw(self, **attributes) -> str:
+        return "".join(line.draw(**attributes) for line in self)
+
+# Implement dummy Null Prim that will return an empty string
+class NullPrimitive:
+    def draw(self, **attributes) -> str:
+        return ""
+
+@dataclass(frozen=True)
+class Rect:
+    top_left: Point | None = None
+
+    def draw(self, **attributes) -> str:
+        if self.top_left:
+            attrs = attributes | {"x": self.top_left.x, "y": self.top_left.y}
+        else:
+            attrs = attributes
+        return tag("rect", **attrs)
+
+@dataclass(frozen=True)
+class Text:
+    content: str
+    point: Point
+
+    def draw(self, **attributes) -> str:
+        return tag(
+            "text",
+            self.content,
+            x=self.point.x,
+            y=self.point.y,
+            **attributes
+        )
