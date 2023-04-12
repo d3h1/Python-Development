@@ -7,6 +7,7 @@ from maze_solver.persistence.file_format import FileBody, FileHeader
 
 FORMAT_VERSION: int = 1
 
+# open file for writing and binary mode ensuring that Python writes the data as it should be 
 def dump(maze: Maze, path: pathlib.Path) -> None:
     header, body = serialize(maze)
     with path.open(mode = 'wb') as file:
@@ -19,5 +20,6 @@ def serialize(maze: Maze) -> tuple[FileHeader, FileBody]:
     body = FileBody(array.array("B", map(compress, maze)))
     return header, body
 
+# Defines a helper function that takes square instances as an argument to later return the border and role 
 def compress(square: Square) -> int:
     return (square.role << 4) | square.border.value
