@@ -15,7 +15,7 @@ class FileHeader:
     @classmethod
     def read(cls, file: BinaryIO) -> 'FileHeader':
         assert (
-            file.read(len(MAGIC_NUMBER)) == MAGIC__NUMBER
+            file.read(len(MAGIC_NUMBER)) == MAGIC_NUMBER
         ), 'Unknown file type'
         # !Reads a single unassigned byte and assigns the result to a local variable with the file format version
         format_version, = struct.unpack("B", file.read(1))
