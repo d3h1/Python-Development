@@ -11,6 +11,25 @@
 ## The computer is the dealer.
 
 ########################## OUR PROGRAM ########################
-
+import random
 from art import logo
-print(logo)
+
+
+# print(logo)
+
+# No jokers
+# King | Queen | Jack = 10
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10]
+needed_cards = 2
+user = []
+computer = []
+
+def deal_cards(cards):
+    print("giving both players two cards \n\n")
+    for i in range(needed_cards):
+        user.append(random.choice(cards))
+        computer.append(random.choice(cards))
+    print(user)
+    print(computer)
+
+deal_cards(cards)
