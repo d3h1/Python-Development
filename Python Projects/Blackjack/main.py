@@ -24,12 +24,13 @@ needed_cards = 2
 user = []
 computer = []
 
+    
 def deal_cards(cards):
     print("giving both players two cards \n\n")
     for i in range(needed_cards):
         user.append(random.choice(cards))
         computer.append(random.choice(cards))
-    print(user)
-    print(computer)
+    value1 = sum(user)
+    value2 = sum(computer)
 
 deal_cards(cards)
