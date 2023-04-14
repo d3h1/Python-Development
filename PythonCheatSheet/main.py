@@ -1,7 +1,5 @@
-# ----------------------------------------------
-# Variables are dynamically typed -- type determined at runtime
 print('\n----------------------------------------------')
-print('VARIABLES')
+print('VARIABLES dynamically typed -- type determined at runtime')
 print('----------------------------------------------')
 
 n = 0
@@ -24,12 +22,9 @@ can assign to value and then null
 '''
 n = 4
 n = None
-# ----------------------------------------------
 
-# ----------------------------------------------
-# IF / ELSE does not need () usually, always :
 print('\n----------------------------------------------')
-print('IF ELSE -- see code')
+print('IF ELSE -- does not need () usually, always :')
 print('----------------------------------------------')
 
 n = 1
@@ -49,11 +44,7 @@ if ((n > 2 and
     n == m):
     print('success')
     n += 1
-# ----------------------------------------------
 
-# ----------------------------------------------
-
-# WHILE LOOPS are similar
 print('\n----------------------------------------------')
 print('LOOPS')
 print('----------------------------------------------')
@@ -76,12 +67,8 @@ for i in range(2, 6):
 for i in range(5, 1, -1):
     print(i)
 
-# ----------------------------------------------
-
-# ----------------------------------------------
-# Division is decimal by default -- decimal division
 print('\n----------------------------------------------')
-print('DIVISION')
+print('DIVISION decimal by default -- decimal division')
 print('----------------------------------------------')
 
 print(5 / 2)
@@ -120,12 +107,9 @@ float('-inf')
 # Python numbers are infinite so they never overflow 
 # This means that even large numbers are still less than infinity
 print((math.pow(2, 200)) < float('inf'))
-# ----------------------------------------------
 
-# ----------------------------------------------
-# ARRAYS -- LISTS -> They are dynamic
 print('\n----------------------------------------------')
-print('ARRAYS')
+print('ARRAYS - LISTS -> They are dynamic')
 print('----------------------------------------------')
 
 arr = [1, 2, 3]
@@ -200,10 +184,7 @@ nums1 = [1, 2, 3]
 nums2 = [4, 24, 31]
 for n1, n2 in zip(nums1, nums2): # Combines both
     print (n1, n2)
-# ----------------------------------------------
-    
-# ----------------------------------------------
-# REVERSING AN ARRAY
+
 print('\n----------------------------------------------')
 print('ARRAY FUNCTIONS')
 print('----------------------------------------------')
@@ -244,12 +225,9 @@ print(arr)
 # this below doesn't work because then each is not unique
 arr = [[0] * 4] * 4
 print(arr)
-# ----------------------------------------------
 
-# ----------------------------------------------
-# STRINGS -- THEY ARE IMMUTABLE
 print('\n----------------------------------------------')
-print('STRINGS')
+print('STRINGS -- THEY ARE IMMUTABLE')
 print('----------------------------------------------')
 
 s = 'abc'
@@ -273,15 +251,11 @@ print(ord('a'))
 letters = ['ab', 'cd', 'ef']
 print(''.join(letters))
 print(','.join(letters)) # Anything you want
-# ----------------------------------------------
 
-# ----------------------------------------------
-# QUEUES (double ended queue) FIRST IN FIRST OUT FIFO 0(1)
-# all can be done in constant time unlike stack
 print('\n----------------------------------------------')
-print('QUEUES')
+print('QUEUES (double ended queue) FIRST IN FIRST OUT FIFO 0(1)')
 print('----------------------------------------------')
-
+# all can be done in constant time unlike stack
 from collections import deque
 
 queue = deque()
@@ -297,15 +271,11 @@ print(queue)
 
 queue.pop() # Can be done to the right also
 print(queue)
-# ----------------------------------------------
 
-# ----------------------------------------------
-# HASHSETS 0(1) -- We can search, insert, remove into them in constant time
-# NO DUPLICATES
 print('\n----------------------------------------------')
-print('HASHSETS')
+print('HASHSETS 0(1) -- We can search, insert, remove into them in constant')
 print('----------------------------------------------')
-
+# NO DUPLICATES
 mySet = set()
 mySet.add(1)
 mySet.add(2)
@@ -332,12 +302,9 @@ print(set(arr)) # List -> Set
 # SET COMPREHENSION -- looping to create a whole set
 mySet = { i for i in range(5) }
 print(mySet)
-# ----------------------------------------------
 
-# ----------------------------------------------
-# HASHMAPS (AKA DICTIONARIES) -- cannot have duplicate keys or values
 print('\n----------------------------------------------')
-print('HASHMAPS')
+print('HASHMAPS (AKA DICTIONARIES) -- cannot have duplicate keys or values')
 print('----------------------------------------------')
 myMap = {}
 myMap['alice'] = 88
@@ -377,13 +344,11 @@ for val in myMap.values():
 for key, value in myMap.items():
     print(key, value)
 
-# ----------------------------------------------
 
-# ----------------------------------------------
-# TUPLES -- Like arrays but immutable
 print('\n----------------------------------------------')
-print('TUPLES')
+print('TUPLES -- Mainly used in Hashsets | Hashmaps')
 print('----------------------------------------------')  
+# TUPLES -- Like arrays but immutable
 tup = (1, 2, 3)    # WE can index but cannot modify unlike arrays
 print(tup)
 print(tup[0])
@@ -391,3 +356,20 @@ print(tup[1])
 
 # CANNOT MODIFY
 # tup[0] = 0 -- This will set a type error 
+
+# Can be used in hashmaps and such
+myMap = {(1, 2): 3}
+print(myMap[(1, 2)])
+
+mySet = set()
+mySet.add((1, 2))
+print((1, 2) in mySet)
+
+# Lists CANNOT be keys while tuples can
+# myMap = [[3, 4]] = 5 This will put out a type error 
+
+print('\n----------------------------------------------')
+print('HEAPS -- Find Min and Max of a set of values frequently')
+print('----------------------------------------------') 
+import heapq
+ 
