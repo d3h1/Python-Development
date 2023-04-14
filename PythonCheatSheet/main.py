@@ -344,4 +344,50 @@ myMap['alice'] = 88
 myMap['bob'] = 99
 print(myMap)
 print(len(myMap))
+# WE can change the values of the keys 
+# by mapping new values
 
+myMap['alice'] = 90
+print(myMap['alice'])
+print('alice' in myMap)
+
+# You can also remove keys from a hashmap
+myMap.pop('alice')
+print('alice' in myMap)
+
+# You can also init a hashmap key:value
+myMap = {'alice':40, 'brenda':60}
+print(myMap)
+
+# CAN USE DICT COMPREHENSION ALSO
+myMap = { i: 2*i for i in range(3)}
+print(myMap)
+
+# Loop through maps
+print('-----------HASHMAP LOOPS-----------')
+myMap = {'alice': 40, 'bob': 50}
+for i in myMap:
+    print(i, myMap[i])
+
+# You can loop using values keyword
+for val in myMap.values():
+    print(val)
+
+# Key and Value using items in the map
+for key, value in myMap.items():
+    print(key, value)
+
+# ----------------------------------------------
+
+# ----------------------------------------------
+# TUPLES -- Like arrays but immutable
+print('\n----------------------------------------------')
+print('TUPLES')
+print('----------------------------------------------')  
+tup = (1, 2, 3)    # WE can index but cannot modify unlike arrays
+print(tup)
+print(tup[0])
+print(tup[1])
+
+# CANNOT MODIFY
+# tup[0] = 0 -- This will set a type error 
