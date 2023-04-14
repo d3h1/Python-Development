@@ -1,0 +1,1 @@
+# Variables are dynamically typed
