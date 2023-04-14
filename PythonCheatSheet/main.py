@@ -335,11 +335,13 @@ print(mySet)
 # ----------------------------------------------
 
 # ----------------------------------------------
-# HASHMAPS (AKA DICTIONARIES)
+# HASHMAPS (AKA DICTIONARIES) -- cannot have duplicate keys or values
 print('\n----------------------------------------------')
 print('HASHMAPS')
 print('----------------------------------------------')
 myMap = {}
 myMap['alice'] = 88
+myMap['bob'] = 99
 print(myMap)
+print(len(myMap))
 
