@@ -1,6 +1,9 @@
 # ----------------------------------------------
 # Variables are dynamically typed -- type determined at runtime
-print('\nVARIABLES')
+print('\n----------------------------------------------')
+print('VARIABLES')
+print('----------------------------------------------')
+
 n = 0
 print(f'n is: {n}')
 
@@ -25,7 +28,10 @@ n = None
 
 # ----------------------------------------------
 # IF / ELSE does not need () usually, always :
-print('\nIF ELSE')
+print('\n----------------------------------------------')
+print('IF ELSE -- see code')
+print('----------------------------------------------')
+
 n = 1
 if n > 2:
     n -= 1
@@ -48,7 +54,10 @@ if ((n > 2 and
 # ----------------------------------------------
 
 # WHILE LOOPS are similar
-print('\nLOOPS')
+print('\n----------------------------------------------')
+print('LOOPS')
+print('----------------------------------------------')
+
 m = 0
 while m < 5:
     print(m)
@@ -71,7 +80,10 @@ for i in range(5, 1, -1):
 
 # ----------------------------------------------
 # Division is decimal by default -- decimal division
-print('\nDIVISION')
+print('\n----------------------------------------------')
+print('DIVISION')
+print('----------------------------------------------')
+
 print(5 / 2)
 
 # Double slash rounds down -- integer division
@@ -112,7 +124,10 @@ print((math.pow(2, 200)) < float('inf'))
 
 # ----------------------------------------------
 # ARRAYS -- LISTS -> They are dynamic
-print('\nARRAYS')
+print('\n----------------------------------------------')
+print('ARRAYS')
+print('----------------------------------------------')
+
 arr = [1, 2, 3]
 print(arr)
 
@@ -189,7 +204,10 @@ for n1, n2 in zip(nums1, nums2): # Combines both
     
 # ----------------------------------------------
 # REVERSING AN ARRAY
-print('\nARRAY FUNCTIONS')
+print('\n----------------------------------------------')
+print('ARRAY FUNCTIONS')
+print('----------------------------------------------')
+
 nums = [1, 2, 3]
 nums.reverse()
 print(nums)
@@ -230,7 +248,10 @@ print(arr)
 
 # ----------------------------------------------
 # STRINGS -- THEY ARE IMMUTABLE
-print('\nSTRINGS')
+print('\n----------------------------------------------')
+print('STRINGS')
+print('----------------------------------------------')
+
 s = 'abc'
 print(s[0:3])
 # So you cannot change the value of an index in a string unlike arrays
@@ -257,7 +278,10 @@ print(','.join(letters)) # Anything you want
 # ----------------------------------------------
 # QUEUES (double ended queue) FIRST IN FIRST OUT FIFO 0(1)
 # all can be done in constant time unlike stack
-print('\nQUEUES')
+print('\n----------------------------------------------')
+print('QUEUES')
+print('----------------------------------------------')
+
 from collections import deque
 
 queue = deque()
@@ -278,7 +302,10 @@ print(queue)
 # ----------------------------------------------
 # HASHSETS 0(1) -- We can search, insert, remove into them in constant time
 # NO DUPLICATES
-print('\nHASHSETS')
+print('\n----------------------------------------------')
+print('HASHSETS')
+print('----------------------------------------------')
+
 mySet = set()
 mySet.add(1)
 mySet.add(2)
@@ -309,7 +336,9 @@ print(mySet)
 
 # ----------------------------------------------
 # HASHMAPS (AKA DICTIONARIES)
-print('\nHASHMAPS')
+print('\n----------------------------------------------')
+print('HASHMAPS')
+print('----------------------------------------------')
 myMap = {}
 myMap['alice'] = 88
 print(myMap)
