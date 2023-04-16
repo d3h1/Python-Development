@@ -371,5 +371,102 @@ print((1, 2) in mySet)
 print('\n----------------------------------------------')
 print('HEAPS -- Find Min and Max of a set of values frequently')
 print('----------------------------------------------') 
+# BY DEFAULT HEAPS ARE MIN HEAPS
 import heapq
+
+# under the hood heaps are implemented by arrays 
+minHeap = []
+heapq.heappush(minHeap, 3)
+heapq.heappush(minHeap, 2)
+heapq.heappush(minHeap, 4)
+
+# Min is always at index 0
+print(minHeap[0])
+
+while len(minHeap):
+    print(heapq.heappop(minHeap))
+
+# SINCE NO MAX HEAPS BY DEFAULT -- work around is to 
+# use min heap and then multiply by -1 when pushing and popping 
+maxHeap = []
+heapq.heappush(maxHeap, -3)
+heapq.heappush(maxHeap, -2)
+heapq.heappush(maxHeap, -4)
+
+# Max will always be at zero but this time you have to multiply by -1
+print(-1 * maxHeap[0])
+
+# Same thing but a good way to check if max heap is working
+while len(maxHeap):
+    print(-1 * heapq.heappop(maxHeap))
+
+# WE CAN ALSO BUILD A HEAP FROM INITIAL VALUES
+arr = [1, 3, 2, 4, 5, 8] #linear time
+
+heapq.heapify(arr)
+while arr:
+    print(heapq.heappop(arr))
+
+print('\n----------------------------------------------')
+print('FUNCTIONS -- They use def')
+print('----------------------------------------------') 
+def myFunc(m, n):
+    return m * n
+print(myFunc(3, 4))
+
+# Nested functions have access to outer variables
+# These are great for RECURSIVE problems
+def outer(a, b):
+    c = 'c'
+    
+    # Declare variables in the outer and the inner 
+    # will always have access to those variables
+    def inner():
+        return a + b + c
+    return inner()
+
+print(outer('a', 'b'))
+
+# With  nested functions, you can modify 
+# objects but not reassign values UNLESS
+# you are using nonlocal keywords
+def double(arr, val):
+    def helper():
+        # Modifying an array works
+        for i, n in enumerate(arr):
+            arr[i] *= 2
+            
+        # Will only modify val in the helper scope
+        # val *= 2 This will no work
+        
+        # This will modify val properly outside helper scope
+        nonlocal val
+        val *= 2
+    helper()
+    print(arr, val)
+    
+nums = [1, 2]
+val = 3
+double(nums, val)
+
+print('\n----------------------------------------------')
+print('CLASSES -- More limited but always needs self')
+print('----------------------------------------------') 
+class MyClass:
+    # Constructor
+    # Self is passed into every method -- LIKE 'THIS' KEYWORD
+    def __init__(self, nums):
+        # Create member variables
+        self.nums = nums
+        self.size = len(nums)
+    
+    # To create method, do not need params, just self ALWAYS
+    def getLength(self):
+        return self.size
+    
+    def getDoubleLength(self):
+        return 2 * self.getLength()
+           
+        
+        
  
