@@ -1,5 +1,6 @@
 import pathlib
 import random
+import rich
 
 from rich.console import Console
 from string import ascii_letters
