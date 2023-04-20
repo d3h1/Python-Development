@@ -4,8 +4,8 @@ import random
 def number_guessing_easy(numOfTries = 10):
     print(f'Easy Difficulty: {numOfTries} Tries')
     while numOfTries > 0:
-        print (randomGuess) # TESTING
-        userEasyGuess = int(input(f'You have {numOfTries} tries left. Make a guess: '))
+        # print (randomGuess) # *TESTING
+        userEasyGuess = int(input(f'\nYou have {numOfTries} tries left. Make a guess: '))
         # !Giving user hints to guess the answer
         if userEasyGuess > randomGuess:
             print('Your answer is too high! Keep trying. . .')
@@ -14,7 +14,7 @@ def number_guessing_easy(numOfTries = 10):
             print('Your answer is too low! Keep trying. . .')
             numOfTries -= 1
         elif userEasyGuess == randomGuess:
-            goodAns
+            print(goodAns)
             break
         else:
             print('Enter a valid answer next try. . . ')
@@ -28,7 +28,7 @@ def number_guessing_easy(numOfTries = 10):
 def number_guessing_hard(numOfTries = 5):
     print(f'Hard Difficulty: {numOfTries} Tries')
     while numOfTries > 0:
-        print (randomGuess) # TESTING
+        # print (randomGuess) # *TESTING
         userHardGuess = int(input(f'You have {numOfTries} tries left. Make a guess: '))
         # !Giving user hints to guess the answer
         if userHardGuess > randomGuess:
@@ -40,7 +40,7 @@ def number_guessing_hard(numOfTries = 5):
             numOfTries -= 1
             badAns
         elif userHardGuess == randomGuess:
-            goodAns
+            print(goodAns)
             break
         else:
             print('Enter a valid answer next try. . . ')
