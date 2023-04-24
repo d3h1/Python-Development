@@ -17,24 +17,25 @@ def game():
         print( randomObject2['name'] + ', a ' + randomObject2['description'] + ', from ' + randomObject2['country'])
 
         userAns = input('Choose A or B: ')
+        playerPoints = 0
+        
         
         if userAns == 'a': 
             if randomObject1['follower_count'] < randomObject2['follower_count']:
                 False
             elif randomObject1['follower_count'] > randomObject2['follower_count']:
-                playerPoints.append(1)
-                print(f'You were correct! You have {playerPoints[0]} points now!')
+                playerPoints += 1
+                print(f'You were correct! You have {playerPoints} points now!')
                 
         if userAns == 'b': 
             if randomObject2['follower_count'] < randomObject1['follower_count']:
                 False
             elif randomObject2['follower_count'] > randomObject1['follower_count']:
-                playerPoints.append(1)
-                print(f'You were correct! You have {playerPoints[0]} points now!')
+                playerPoints += 1
+                print(f'You were correct! You have {playerPoints} points now!')
 
 
 # !GLOBAL VARIABLES
-playerPoints = []
 
 randomObject1 = random.choice(data)
 choiceA = randomObject1['name'] + ', a ' + randomObject1['description'] + ', from ' + randomObject1['country']
@@ -69,4 +70,4 @@ choiceB = randomObject2['name'] + ', a ' + randomObject2['description'] + ', fro
 
 
 
-# game()
+game()
