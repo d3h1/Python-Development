@@ -4,37 +4,67 @@ import random
 
 print(logo)
 
-# def game():
+def game():
     
-#     while True:
+    while True:
         
-#         print('Compare A: ')
-#         print( randomObject['name'] + ', a ' + randomObject['description'] + ', from ' + randomObject['country'])
+        print('Compare A: ')
+        print( randomObject1['name'] + ', a ' + randomObject1['description'] + ', from ' + randomObject1['country'])
 
-#         print(vs)
+        print(vs)
 
-#         print('Compare B: ')
-#         print( randomObject['name'] + ', a ' + randomObject['description'] + ', from ' + randomObject['country'])
+        print('Compare B: ')
+        print( randomObject2['name'] + ', a ' + randomObject2['description'] + ', from ' + randomObject2['country'])
 
-#         input(' Does A or B have more followers in instagram?')
+        userAns = input('Choose A or B: ')
+        
+        if userAns == 'a': 
+            if randomObject1['follower_count'] < randomObject2['follower_count']:
+                False
+            elif randomObject1['follower_count'] > randomObject2['follower_count']:
+                playerPoints.append(1)
+                print(f'You were correct! You have {playerPoints[0]} points now!')
+                
+        if userAns == 'b': 
+            if randomObject2['follower_count'] < randomObject1['follower_count']:
+                False
+            elif randomObject2['follower_count'] > randomObject1['follower_count']:
+                playerPoints.append(1)
+                print(f'You were correct! You have {playerPoints[0]} points now!')
 
 
 # !GLOBAL VARIABLES
-score = {} # score : count
-playerPoints = [0]
+playerPoints = []
+
 randomObject1 = random.choice(data)
-randomObject2 = random.choice(data)
-
-
-
 choiceA = randomObject1['name'] + ', a ' + randomObject1['description'] + ', from ' + randomObject1['country']
 
+randomObject2 = random.choice(data)
 choiceB = randomObject2['name'] + ', a ' + randomObject2['description'] + ', from ' + randomObject2['country']
 
-if randomObject1['follower_count'] != randomObject2['follower_count']:
-    print ('This is true')
+# # TESTING
+# if randomObject1['follower_count'] == randomObject2['follower_count']:
+#     print (True)
+#     print(randomObject1['follower_count'],randomObject2['follower_count'])
+# else:
+#     print(False)
+#     print(randomObject1['follower_count'],randomObject2['follower_count'])
 
-print (choiceA + '\n' + choiceB)
+# userAns = input('Choose A or B: ')
+# if userAns == 'a': 
+#     if randomObject1['follower_count'] < randomObject2['follower_count']:
+#         False
+#     elif randomObject1['follower_count'] > randomObject2['follower_count']:
+#         playerPoints.append(1)
+#         print(f'You were correct! You have {playerPoints[0]} points now!')
+# if userAns == 'b': 
+#     if randomObject2['follower_count'] < randomObject1['follower_count']:
+#         False
+#     elif randomObject2['follower_count'] > randomObject1['follower_count']:
+#         playerPoints.append(1)
+#         print(f'You were correct! You have {playerPoints[0]} points now!')
+
+# print (choiceA + '\n' + choiceB)
 
 
 
