@@ -1,0 +1,17 @@
+1. Makes 3 Hot flavors
+    - Espresso : Price(1.50)
+        Ingredient 1 > 50 mL Water
+        Ingredient 2 > 18 g Coffee
+        Ingredient 3 > 0 mL Milk
+        
+    - Latte : Price(2.50)
+        Ingredient 1 > 200 mL Water
+        Ingredient 2 > 24 g Coffee
+        Ingredient 3 > 150 mL Milk
+
+    - Cappuccino : Price(3.00)
+        Ingredient 1 > 250 mL Water
+        Ingredient 2 > 24 g Coffee
+        Ingredient 3 > 100 mL Milk
+
+2. 
