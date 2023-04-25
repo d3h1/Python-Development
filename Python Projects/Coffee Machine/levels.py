@@ -25,3 +25,9 @@ machine_coffee_level = MACHINE_RESOURCES_NEEDED['coffee']
 
 # MILK LEVELS
 machine_milk_level = MACHINE_RESOURCES_NEEDED['milk']
+
+# !COIN VALUES
+penny = 0.01
+nickle = 0.05
+dime = 0.10
+quarter = 0.25
