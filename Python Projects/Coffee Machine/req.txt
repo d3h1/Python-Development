@@ -14,4 +14,22 @@
         Ingredient 2 > 24 g Coffee
         Ingredient 3 > 100 mL Milk
 
-2. 
+2. Coin Operated (American Coin)
+    - Penny - 0.01
+    - Nickle - 0.05
+    - Dime - 0.10
+    - Quarter - 0.25
+
+PROGRAM REQ
+1. Coffee Machine : prints report 'report'
+
+2. Check if resources are sufficient when 
+inputting wanted drink
+
+3. Process coins - Please insert coins - 
+and which ones (will refund if not enough money) 
+(will also give change if too much)
+
+4. Check if transaction successful
+
+5. Make drink ( subtract current resources)
