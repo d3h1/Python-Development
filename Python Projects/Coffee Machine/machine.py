@@ -13,9 +13,9 @@ def drink_maker():
         drink_choice = int(input(f'\nPlease choose a drink {name}: \n\n\t1. Espresso \n\t2. Latte \n\t3. Cappuccino\n \n\nPlease choose here: '))
         if drink_choice == 1:
             print('\nYou have chosen espresso!')
-            espresso_coffee_level
-            espresso_milk_level
-            espresso_water_level
+            new_espresso_coffee_levels
+            new_espresso_milk_levels
+            new_espresso_water_levels
             
         elif drink_choice == 2:
             print('\nYou have chosen latte!')
