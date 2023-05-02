@@ -20,7 +20,7 @@ def drink_maker():
         drink_choice = int(input(f'\nPlease choose a drink {name}: \n\n\t1. Espresso \n\t2. Latte \n\t3. Cappuccino\n \n\nPlease choose here: '))
         if drink_choice == 1:
             print('\nYou have chosen espresso!')
-            if 
+            # !if --- error here 
             
             new_coffee_levels = machine_coffee_level - espresso_coffee_level 
             new_milk_levels = machine_milk_level - espresso_milk_level 
