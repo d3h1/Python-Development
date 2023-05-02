@@ -1,21 +1,32 @@
 import random
 import math
-from levels import espresso_water_level, latte_water_level, cappuccino_water_level, espresso_coffee_level, latte_coffee_level, cappuccino_coffee_level, espresso_milk_level, latte_milk_level, cappuccino_milk_level, machine_water_level, machine_coffee_level, machine_milk_level, penny, nickle, dime, quarter, new_latte_water_levels, new_espresso_water_levels, new_cappuccino_coffee_levels, new_cappuccino_milk_levels, new_cappuccino_water_levels, new_espresso_coffee_levels, new_espresso_milk_levels, new_latte_coffee_levels, new_latte_milk_levels
+from levels import espresso_water_level, latte_water_level, cappuccino_water_level, espresso_coffee_level, latte_coffee_level, cappuccino_coffee_level, espresso_milk_level, latte_milk_level, cappuccino_milk_level, machine_water_level, machine_coffee_level, machine_milk_level, penny, nickle, dime, quarter
+
+# new_latte_water_levels, new_espresso_water_levels, new_cappuccino_coffee_levels, new_cappuccino_milk_levels, new_cappuccino_water_levels, new_espresso_coffee_levels, new_espresso_milk_levels, new_latte_coffee_levels, new_latte_milk_levels
 
 # We will make our drinks here
 def drink_maker():
+    
+    
+    print(f'\n\tCurrent Milk Levels: {machine_milk_level}') 
+    print(f'\tCurrent Water Levels: {machine_water_level}') 
+    print(f'\tCurrent Coffee Levels: {machine_coffee_level}\n')
+    
     while True:
-        
-        print(f'\n\tCurrent Milk Levels: {machine_milk_level}') 
-        print(f'\tCurrent Water Levels: {machine_water_level}') 
-        print(f'\tCurrent Coffee Levels: {machine_coffee_level}\n')
+        new_coffee_levels = 0 
+        new_milk_levels = 0 
+        new_water_levels = 0
         
         drink_choice = int(input(f'\nPlease choose a drink {name}: \n\n\t1. Espresso \n\t2. Latte \n\t3. Cappuccino\n \n\nPlease choose here: '))
         if drink_choice == 1:
             print('\nYou have chosen espresso!')
-            new_espresso_coffee_levels
-            new_espresso_milk_levels
-            new_espresso_water_levels
+            if 
+            
+            new_coffee_levels = machine_coffee_level - espresso_coffee_level 
+            new_milk_levels = machine_milk_level - espresso_milk_level 
+            new_water_levels = machine_water_level - espresso_water_level 
+            
+            
             
         elif drink_choice == 2:
             print('\nYou have chosen latte!')

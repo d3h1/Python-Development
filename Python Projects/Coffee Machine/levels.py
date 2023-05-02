@@ -26,21 +26,21 @@ machine_coffee_level = MACHINE_RESOURCES_NEEDED['coffee']
 # MILK LEVELS
 machine_milk_level = MACHINE_RESOURCES_NEEDED['milk']
 
-# !VALUES IF DRINKS MADE
-# WATER LEVELS
-new_espresso_water_levels = MACHINE_RESOURCES_NEEDED['water'] - MENU['espresso']['ingredients']['water']
-new_latte_water_levels = MACHINE_RESOURCES_NEEDED['water'] - MENU['latte']['ingredients']['water']
-new_cappuccino_water_levels = MACHINE_RESOURCES_NEEDED['water'] - MENU['cappuccino']['ingredients']['water']
+# # !VALUES IF DRINKS MADE
+# # WATER LEVELS
+# new_espresso_water_levels = MACHINE_RESOURCES_NEEDED['water'] - MENU['espresso']['ingredients']['water']
+# new_latte_water_levels = MACHINE_RESOURCES_NEEDED['water'] - MENU['latte']['ingredients']['water']
+# new_cappuccino_water_levels = MACHINE_RESOURCES_NEEDED['water'] - MENU['cappuccino']['ingredients']['water']
 
-# COFFEE LEVELS
-new_espresso_coffee_levels = MACHINE_RESOURCES_NEEDED['coffee'] - MENU['espresso']['ingredients']['coffee']
-new_latte_coffee_levels = MACHINE_RESOURCES_NEEDED['coffee'] - MENU['latte']['ingredients']['coffee']
-new_cappuccino_coffee_levels = MACHINE_RESOURCES_NEEDED['coffee'] - MENU['cappuccino']['ingredients']['coffee']
+# # COFFEE LEVELS
+# new_espresso_coffee_levels = MACHINE_RESOURCES_NEEDED['coffee'] - MENU['espresso']['ingredients']['coffee']
+# new_latte_coffee_levels = MACHINE_RESOURCES_NEEDED['coffee'] - MENU['latte']['ingredients']['coffee']
+# new_cappuccino_coffee_levels = MACHINE_RESOURCES_NEEDED['coffee'] - MENU['cappuccino']['ingredients']['coffee']
 
-# MILK LEVELS
-new_espresso_milk_levels = MACHINE_RESOURCES_NEEDED['milk'] - MENU['espresso']['ingredients']['milk']
-new_latte_milk_levels = MACHINE_RESOURCES_NEEDED['milk'] - MENU['latte']['ingredients']['milk']
-new_cappuccino_milk_levels = MACHINE_RESOURCES_NEEDED['milk'] - MENU['cappuccino']['ingredients']['milk']
+# # MILK LEVELS
+# new_espresso_milk_levels = MACHINE_RESOURCES_NEEDED['milk'] - MENU['espresso']['ingredients']['milk']
+# new_latte_milk_levels = MACHINE_RESOURCES_NEEDED['milk'] - MENU['latte']['ingredients']['milk']
+# new_cappuccino_milk_levels = MACHINE_RESOURCES_NEEDED['milk'] - MENU['cappuccino']['ingredients']['milk']
 
 # !COIN VALUES
 penny = 0.01
