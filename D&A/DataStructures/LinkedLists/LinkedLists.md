@@ -1,5 +1,6 @@
 # Linked Lists - (11-Head)->(3)->(23)->(7-Tail)->none
 
+## BIG O Of Linked List
 ##### APPEND 4 TO end: O(1)
     (11)->(3)->(23)->(7)->(4)->none
 
@@ -69,5 +70,29 @@
 
         - Inserting 4 in the middle and having to look through the list
         makes this O(n)
+
+##### REMOVE 4 FROM middle: O(n)
+    (11)->(3)->(23)->(7)->none
+
+    To make this occur . . . 
+
+        - Look through the list and find NODE 4. 
+        Since NODE 4's pointer is looking at 7, NODE 23 will equal to that pointer. 
+
+        - This allows us to remove 4 from the linked list
+
+        - Iterating through the list like that makes it O(n)
+
+
+##### LOOKUP 23: O(n)
+    (11)->(3)->(23)->(7)->none
+
+    To make this occur . . . 
+
+        - Iterate through the list untill you find 
+        NODE 23
+
+        - If looking by index, you have to start at head
+        and iterate until index of 23
 
 
