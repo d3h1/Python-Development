@@ -1,4 +1,4 @@
-class LinkedList:
+class Functions:
   # def __init__ (self, value):
   #   return 'test'
   
@@ -16,3 +16,5 @@ class LinkedList:
   
   # These are just certain things you would do within this class of Linked List and something we are gonna 
   # create as we make and use more data structures
+  
+  
