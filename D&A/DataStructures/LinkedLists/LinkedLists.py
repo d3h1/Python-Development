@@ -54,7 +54,6 @@ class LinkedList:
         self.length = 1
 
     def print_list(self):
-        # my_linked_list.head
         temp = self.head
         while temp is not None:
             print(temp.value)
@@ -63,7 +62,6 @@ class LinkedList:
     # The append will create a new NODE and add it to the END
     def append(self, value):
         new_node = Node(value)
-
         if self.head is None:
             self.head = new_node
             self.tail = new_node
@@ -73,6 +71,22 @@ class LinkedList:
         self.length += 1
         # Do not need this for append but need this for a true false used in a method down the line
         return True
+    
+    def pop(self):
+        if self.length == 0:
+            return None
+        pre = self.head
+        temp = self.head
+        while temp.next is not None:
+            pre = temp
+            temp = temp.next
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp
 
     # The prepend will create a new NODE and add it to the FRONT
     def prepend(self, value):
@@ -87,6 +101,10 @@ class LinkedList:
 my_linked_list = LinkedList(9)
 my_linked_list.append(1)
 my_linked_list.append(3)
+my_linked_list.pop().value
+my_linked_list.pop().value
+# my_linked_list.pop().value
+
 my_linked_list.print_list()
 print(f"Head is {my_linked_list.head.value}")
 print(f"Tail is {my_linked_list.tail.value}")

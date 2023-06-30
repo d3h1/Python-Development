@@ -1,6 +1,6 @@
 class Functions:
-  # def __init__ (self, value):
-  #   return 'test'
+  def __init__ (self, value):
+    return 'test'
   
   # def append (self, value):
   #   return 'test'
