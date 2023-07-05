@@ -103,7 +103,14 @@ class LinkedList:
     # The pop_first will pop off the first NODE 
     def pop_first(self):
         if self.length == 0:
-            
+            return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp
 
     # The insert will create a new NODE and add it to the INDEX given
     def insert(self, index, value):
