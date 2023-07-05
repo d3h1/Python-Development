@@ -90,7 +90,15 @@ class LinkedList:
 
     # The prepend will create a new NODE and add it to the FRONT
     def prepend(self, value):
-        print("prepended")
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+        return True
 
     # The insert will create a new NODE and add it to the INDEX given
     def insert(self, index, value):
@@ -102,9 +110,10 @@ my_linked_list = LinkedList(9)
 my_linked_list.append(1)
 my_linked_list.append(3)
 my_linked_list.pop().value
-my_linked_list.pop().value
+my_linked_list.prepend(2)
 # my_linked_list.pop().value
 
 my_linked_list.print_list()
 print(f"Head is {my_linked_list.head.value}")
 print(f"Tail is {my_linked_list.tail.value}")
+print(f"Length is {my_linked_list.length}")
