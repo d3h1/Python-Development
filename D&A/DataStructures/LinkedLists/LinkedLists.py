@@ -99,6 +99,11 @@ class LinkedList:
             self.head = new_node
         self.length += 1
         return True
+    
+    # The pop_first will pop off the first NODE 
+    def pop_first(self):
+        if self.length == 0:
+            
 
     # The insert will create a new NODE and add it to the INDEX given
     def insert(self, index, value):
@@ -111,6 +116,8 @@ my_linked_list.append(1)
 my_linked_list.append(3)
 my_linked_list.pop().value
 my_linked_list.prepend(2)
+my_linked_list.prepend(3)
+my_linked_list.pop_first().value
 # my_linked_list.pop().value
 
 my_linked_list.print_list()
