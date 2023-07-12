@@ -1,4 +1,8 @@
-from turtle import Turtle
+# from turtle import Turtle, Screen
 
-timmy = Turtle()
-print(timmy)
+# timmy = Turtle()
+# my_screen = Screen()
+# timmy.shape("turtle")
+# timmy.color('red')
+
+# my_screen.exitonclick()
